@@ -4,6 +4,9 @@ import TwitterImage from "../../assets/images/1667587711730.jpeg";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import auth from "../../firebase.init"
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
+import GoogleButton from 'react-google-button'
+import { Link } from "react-router-dom";
+import "./Login.css"
 
 const SignUp = () => {
     const [userName, setUserName] = useState('');
@@ -43,12 +46,12 @@ const SignUp = () => {
     return (
 
         <div>
-            <div className="signup-container">
+            <div className="login-container">
                 <div className="image-container">
                     <img src={TwitterImage} alt="Twitter image" />
                 </div>
                 <div className="form-container">
-                    <TwitterIcon />
+                    <TwitterIcon className="TwitterIcon" style={{ color: "skyblue" }} />
                     <h2>Happening Now</h2>
 
                     <form onSubmit={handleSubmit}>
@@ -71,10 +74,27 @@ const SignUp = () => {
                             <button type="submit" >Sign Up</button>
                         </div>
                     </form>
+                    <div className="google-button">
+                        <GoogleButton
+                            className="g-btn"
+                            type="light" />
+                    </div>
+                    <div>
+                        Already have an account ?
+                        <Link to='/login'
+                            style={{
+                                textDecoration: 'none',
+                                color: "skyblue",
+                                fontWeight: '600',
+                                marginLeft: '5px'
+
+                            }}>
+                        </Link>
+                    </div>
                 </div>
 
 
-                <h1>This is Login page</h1>
+
             </div>
         </div>
     )
