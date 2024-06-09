@@ -61,7 +61,8 @@ const Login = () => {
             </div>
             <div className="form-container">
                 <div className="form-box"><TwitterIcon style={{ color: 'skyblue' }} />
-                    <h2>Happening Now</h2>
+                    <h2 className="heading">Happening Now</h2>
+                    <h3 className="heading1">What Happening Today</h3>
 
                     <form onSubmit={handleSubmit}>
 
@@ -70,9 +71,10 @@ const Login = () => {
                         <input type="password" className="password" placeholder="Password"
                             onChange={(e) => setPassword(e.target.value)} />
                         <div className="btn-login">
-                            <button type="submit" >Sign In</button>
+                            <button className="btn" type="submit" >Login</button>
                         </div>
                     </form>
+                    <hr></hr>
                     <div className="google-button">
                         <GoogleButton
                             className="g-btn"

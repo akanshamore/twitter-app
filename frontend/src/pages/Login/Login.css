@@ -95,11 +95,9 @@ input {
 
 }
 
-
-
-
 .btn-login {
     padding: 7px;
+
 }
 
 .btn {
@@ -126,6 +124,7 @@ input {
 
 .google-button {
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .g-btn>div,
