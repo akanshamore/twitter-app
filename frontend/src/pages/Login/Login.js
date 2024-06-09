@@ -57,27 +57,27 @@ const Login = () => {
 
         <div className="login-container">
             <div className="image-container">
-                <img src={TwitterImage} alt="Twitter image" />
+                <img className='image' src={TwitterImage} alt="Twitter image" />
             </div>
             <div className="form-container">
-                <TwitterIcon />
-                <h2>Happening Now</h2>
+                <div className="form-box"><TwitterIcon style={{ color: 'skyblue' }} />
+                    <h2>Happening Now</h2>
 
-                <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit}>
 
-                    <input type="email" className="email" placeholder="Email Address"
-                        onChange={(e) => setEmail(e.target.value)} />
-                    <input type="password" className="password" placeholder="Password"
-                        onChange={(e) => setPassword(e.target.value)} />
-                    <div className="btn-login">
-                        <button type="submit" >Sign In</button>
-                    </div>
-                </form>
-                <div className="google-button">
-                    <GoogleButton
-                        className="g-btn"
-                        type="light"
-                        onClick={handleGoogleSignIn} />
+                        <input type="email" className="email" placeholder="Email Address"
+                            onChange={(e) => setEmail(e.target.value)} />
+                        <input type="password" className="password" placeholder="Password"
+                            onChange={(e) => setPassword(e.target.value)} />
+                        <div className="btn-login">
+                            <button type="submit" >Sign In</button>
+                        </div>
+                    </form>
+                    <div className="google-button">
+                        <GoogleButton
+                            className="g-btn"
+                            type="light"
+                            onClick={handleGoogleSignIn} /></div>
                 </div>
                 <div>
                     Don't have an account ?
@@ -93,9 +93,6 @@ const Login = () => {
                     </Link>
                 </div>
             </div>
-
-
-            <h1>This is Login page</h1>
         </div>
     )
 }
