@@ -22,12 +22,12 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
 
 
-    const [signInWithMicrosoft, googleUser, googleLoading, googleError] =
-        useSignInWithGoogle(auth
-        );
+    const [signInWithGoogle, googleUser, googleLoading, googleError] =
+        useSignInWithGoogle(auth);
+
     if (user || googleUser) {
 
-        console.log(user);
+        console.log(user)
         console.log(googleUser)
     }
     if (error) {
@@ -44,7 +44,7 @@ const SignUp = () => {
 
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         // console.log("clicked")
         console.log(email, password)
 
@@ -53,7 +53,7 @@ const SignUp = () => {
 
     const handleGoogleSignIn = () => {
 
-        signInWithMicrosoft();
+        signInWithGoogle();
     }
 
     return (
@@ -95,7 +95,7 @@ const SignUp = () => {
                             onClick={handleGoogleSignIn} />
                     </div>
                     <div>
-                        Already have an account ?
+                        Already  have an account ?
                         <Link to='/login'
                             style={{
                                 textDecoration: 'none',
@@ -104,6 +104,7 @@ const SignUp = () => {
                                 marginLeft: '5px'
 
                             }}>
+                            Login
                         </Link>
                     </div>
                 </div>

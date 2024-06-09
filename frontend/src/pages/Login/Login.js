@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import TwitterImage from "../../assets/images/1667587711730.jpeg";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import auth from "../../firebase.init"
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
+import GoogleButton from "react-google-button";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const navigate = useNavigate();
 
     const [
         signInWithEmailAndPassword,
@@ -19,6 +21,25 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     console.log(user);
 
+
+    const [signInWithGoogle, googleUser, googleLoading, googleError] =
+        useSignInWithGoogle(auth
+        );
+
+    if (user || googleUser) {
+        navigate('/')
+        console.log(user)
+        console.log(googleUser)
+
+    }
+
+    if (loading) {
+        console.log("loading..");
+
+    }
+
+    console.log(user);
+
     const handleSubmit = (e) => {
 
         e.preventDefault()
@@ -26,6 +47,11 @@ const Login = () => {
         // console.log(email, password)
         console.log(user)
         signInWithEmailAndPassword(email, password)
+    }
+
+    const handleGoogleSignIn = () => {
+
+        signInWithGoogle();
     }
     return (
 
@@ -47,6 +73,25 @@ const Login = () => {
                         <button type="submit" >Sign In</button>
                     </div>
                 </form>
+                <div className="google-button">
+                    <GoogleButton
+                        className="g-btn"
+                        type="light"
+                        onClick={handleGoogleSignIn} />
+                </div>
+                <div>
+                    Don't have an account ?
+                    <Link to='/signup'
+                        style={{
+                            textDecoration: 'none',
+                            color: "skyblue",
+                            fontWeight: '600',
+                            marginLeft: '5px'
+
+                        }}>
+                        Sign Up
+                    </Link>
+                </div>
             </div>
 
 
