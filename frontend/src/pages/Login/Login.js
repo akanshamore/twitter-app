@@ -27,7 +27,7 @@ const Login = () => {
         );
 
     if (user || googleUser) {
-        navigate('/')
+        navigate('/');
         console.log(user)
         console.log(googleUser)
 
