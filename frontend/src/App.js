@@ -6,6 +6,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SignUp from './pages/Login/SignUp';
 import ProtectedRoute from './pages/ProtectedRoute';
+import PageLoading from './pages/PageLoading';
 
 
 
@@ -22,6 +23,7 @@ function App() {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path='/page-loading' element={<PageLoading />} />
         </Routes>
       </BrowserRouter>
     </div>
