@@ -1,11 +1,16 @@
 import React from "react";
+import Sidebar from "../Sidebar/Sidebar";
+import Feed from "../Feed/Feed";
+import Widget from "../Widget/Widget";
 
 const Home = () => {
 
     return (
 
-        <div>
-            <h1>This is Home page</h1>
+        <div className="app">
+            <Sidebar />
+            <Feed />
+            <Widget />
         </div>
     )
 }
