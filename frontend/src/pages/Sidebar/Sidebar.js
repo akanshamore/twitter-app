@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import './Sidebar.css';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import SidebarOptions from "./SidebarOptions";
-import { Icon, IconButton, ListItemIcon, Menu, MenuItem } from "@mui/material";
+import { Divider, Icon, IconButton, ListItemIcon, Menu, MenuItem } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -17,24 +17,24 @@ import DoneIcon from '@mui/icons-material/Done';
 import ListIcon from '@mui/icons-material/List';
 import { Avatar, Button } from '@mui/material';
 
-const Sidebar = () => {
-    const [anchorE1, setAnchorE1] = useState(null);
-    const openMenu = Boolean(anchorE1);
+const Sidebar = ({ handleLogout, user }) => {
+    const [AnchorEl, setAnchorEl] = useState(null);
+    const openMenu = Boolean(AnchorEl);
 
     const handleClick = e => {
 
 
-        setAnchorE1(e.currentTarget);
+        setAnchorEl(e.currentTarget);
     }
 
     const handleClose = () => {
-        setAnchorE1(null);
+        setAnchorEl(null);
 
     }
     return (
 
         <div className="sidebar">
-            <TwitterIcon className="sidebar_twitterIcons" />
+            <TwitterIcon className="sidebar__twitterIcon" />
             <SidebarOptions active Icon={HomeIcon} text='Home' />
             <SidebarOptions active Icon={SearchIcon} text='Explore' />
             <SidebarOptions active Icon={NotificationsIcon} text='Notifications' />
@@ -46,15 +46,13 @@ const Sidebar = () => {
             <Button variant="outlined" className="sidebar__tweet" fullWidth>
                 Tweet
             </Button>
-            <div className="profile_info">
+            <div className="Profile_info">
                 <Avatar src={"https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"}></Avatar>
-            </div>
-            <div className="user-info">
-                <div className="user_info-subuser_info"><h5>Akansha More</h5>
-                    <h5>@Akansha12</h5></div>
-                <ListItemIcon />
-            </div>
-            <div>
+
+                <div className="user_info">
+                    <h5>Akansha More</h5>
+                    <h5>@Akansha12</h5>
+                </div>
                 <IconButton size="small" sx={{ ml: 2 }}
                     aria-controls={openMenu ? 'basic-menu' : undefined}
                     aria-haspopup="true"
@@ -62,15 +60,29 @@ const Sidebar = () => {
                     onClick={handleClick}
                 >
                     <MoreHorizIcon />
+
                 </IconButton>
-                <Menu id="basic-menu" anchorEl={anchorE1} open={openMenu} onClick={handleClose} onClose={handleClose}>
+                <Menu id="basic-menu" anchorEl={AnchorEl} open={openMenu} onClick={handleClose} onClose={handleClose}>
                     <MenuItem className="Profile__info1" >
                         <Avatar src={"https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"} />
+
+
+                        <div className="subUser__info">
+                            <div>
+                                <h5>Akansha More</h5>
+                                <h5>@Akansha12</h5>
+                            </div>
+
+                            <ListItemIcon className="done__icon"> <DoneIcon /></ListItemIcon>
+                        </div>
                     </MenuItem>
+                    <Divider />
+                    <MenuItem onClick={handleClose}>Add an existing account</MenuItem>
+                    <MenuItem onClick={handleLogout}>Logout@Akansha12</MenuItem>
                 </Menu>
             </div>
         </div >
-    )
-}
+    );
+};
 
 export default Sidebar;
