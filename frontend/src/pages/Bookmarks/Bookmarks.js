@@ -1,14 +1,15 @@
+
 import React from "react";
 import '../Page.css'
 
-const Feed = () => {
+const Bookmarks = () => {
 
     return (
 
         <div className="page">
-            <h2 className="pageTitle">Welcome to Feed</h2>
+            <h2 className="pageTitle">Welcome to Bookmarks</h2>
         </div>
     )
 }
 
-export default Feed;
+export default Bookmarks;

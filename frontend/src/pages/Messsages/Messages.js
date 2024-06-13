@@ -1,14 +1,16 @@
+
+
 import React from "react";
 import '../Page.css'
 
-const Feed = () => {
+const Messages = () => {
 
     return (
 
         <div className="page">
-            <h2 className="pageTitle">Welcome to Feed</h2>
+            <h2 className="pageTitle">Welcome to Messages</h2>
         </div>
     )
 }
 
-export default Feed;
+export default Messages;

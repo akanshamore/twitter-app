@@ -1,9 +1,9 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import Feed from "../Feed/Feed";
-import Widget from "../Widget/Widget";
 
+import Widget from "../Widget/Widget";
+import { Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -18,7 +18,7 @@ const Home = () => {
 
         <div className="app">
             <Sidebar handleLogout={handleLogout} user={user} />
-            <Feed />
+            <Outlet />
             <Widget />
         </div>
     )
