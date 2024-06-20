@@ -6,7 +6,8 @@ import SidebarOptions from "./SidebarOptions";
 import { Divider, Icon, IconButton, ListItemIcon, Menu, MenuItem } from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import ListAltIcon from '@mui/icons-material/ListAlt';
@@ -16,6 +17,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import DoneIcon from '@mui/icons-material/Done';
 import ListIcon from '@mui/icons-material/List';
 import { Avatar, Button } from '@mui/material';
+import CustomLink from './CustomLink';
 
 const Sidebar = ({ handleLogout, user }) => {
     const [AnchorEl, setAnchorEl] = useState(null);
@@ -34,15 +36,33 @@ const Sidebar = ({ handleLogout, user }) => {
     return (
 
         <div className="sidebar">
+
             <TwitterIcon className="sidebar__twitterIcon" />
-            <SidebarOptions active Icon={HomeIcon} text='Home' />
-            <SidebarOptions active Icon={SearchIcon} text='Explore' />
-            <SidebarOptions active Icon={NotificationsIcon} text='Notifications' />
-            <SidebarOptions active Icon={BookmarkBorderIcon} text='Bookmarks' />
-            <SidebarOptions active Icon={MailOutlineIcon} text='Messages' />
-            <SidebarOptions active Icon={ListAltIcon} text='Lists' />
-            <SidebarOptions active Icon={PermIdentityIcon} text='Profile' />
-            <SidebarOptions active Icon={MoreIcon} text='More' />
+            <CustomLink to='/home/feed'>
+                <SidebarOptions active Icon={HomeIcon} text="Home" />
+            </CustomLink>
+            <CustomLink to='/home/explore'>
+                <SidebarOptions Icon={SearchIcon} text="Explore" />
+            </CustomLink>
+            <CustomLink to='/home/notifications'>
+                <SidebarOptions Icon={NotificationsNoneIcon} text="Notifications" />
+            </CustomLink>
+            <CustomLink to='/home/messages'>
+                <SidebarOptions Icon={MailOutlineIcon} text="Messages" />
+            </CustomLink>
+            <CustomLink to='/home/bookmarks'>
+                <SidebarOptions Icon={BookmarkBorderIcon} text="Bookmarks" />
+            </CustomLink>
+            <CustomLink to='/home/lists'>
+                <SidebarOptions Icon={ListAltIcon} text="Lists" />
+            </CustomLink>
+            <CustomLink to='/home/profile'>
+                <SidebarOptions Icon={PermIdentityIcon} text="Profile" />
+            </CustomLink>
+            <CustomLink to='/home/more'>
+                <SidebarOptions Icon={MoreIcon} text="More" />
+            </CustomLink>
+
             <Button variant="outlined" className="sidebar__tweet" fullWidth>
                 Tweet
             </Button>
